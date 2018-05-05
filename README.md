@@ -1,7 +1,6 @@
 # fetch-any
 
-Extendible fetch, you can write native fetch unsupported scheme, such as file|data|memory.... fetch-any built-in support file://.
-
+Extendible fetch, you can write native fetch unsupported scheme, such as file|data|memory.... 
 ## install
 ```sh
 > npm install fetch-any
