@@ -24,3 +24,5 @@ module.exports.support=function(url){
 		return false
 	}
 }
+
+require(".").support(module.exports)

@@ -19,8 +19,6 @@ module.exports.support=function(fetcher){
 	return module.exports
 }
 
-module.exports.support(require("./file"))
-
 global.fetch = module.exports;
 if(!global.Response.prototype.arrayBuffer){
 	global.Response.prototype.arrayBuffer=global.Response.prototype.buffer
