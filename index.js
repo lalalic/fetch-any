@@ -2,19 +2,26 @@ var fetch=require("isomorphic-fetch")
 
 var supports=[]
 module.exports=function(url,options){
-	let fetcher=supports.find(a=>a.support(url,options))||fetch
+	var fetcher=supports.find(function(a){
+		return a.support(url,options)
+	})
+	
+	if(!fetcher){
+		fetcher=fetch
+	}
+	
 	return fetcher.call(this,url,options)
 }
 
 module.exports.support=function(fetcher){
-	let type
+	var type
 	if(!fetcher.support || (type=fetcher.support())){
 		supports.push(fetcher)
 		if(type){
-			console.log(`fetch[${type}] installed`)
+			console.log("fetch["+type"] installed")
 		}
 	}else if(type){
-		console.log(`fetch[${type}] discarded because of not supported environment`)
+		console.log("fetch["+type+"] discarded because of not supported environment")
 	}
 	return module.exports
 }
